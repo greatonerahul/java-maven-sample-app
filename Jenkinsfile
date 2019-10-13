@@ -23,7 +23,11 @@ pipeline {
                     junit 'target/surefire-reports/*.xml'
                 }
             }
-        
-       }
+        }
+        stage('Deliver') { 
+            steps {
+                sh 'sudo sh ./jenkins/scripts/deliver.sh' 
+            }
+        }
     }
 }
